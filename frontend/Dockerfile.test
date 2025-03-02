@@ -9,6 +9,4 @@ RUN npm i
 COPY ./public public
 COPY ./src src
 
-ENV CI=true
-
 CMD ["npm", "test", "--watchAll"]
