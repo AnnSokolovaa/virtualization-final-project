@@ -7,6 +7,11 @@ services:
     ports: [3000:3000]
     networks: [app-network]
     depends_on: [backend]
+  frontend-tests:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.test
+    depends_on: [frontend]
   backend:
     build:
       context: ./backend
