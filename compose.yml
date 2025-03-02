@@ -4,20 +4,24 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: som38/final-frontend:${IMAGE_TAG}
     ports: [3000:3000]
     networks: [app-network]
     depends_on: [backend]
+    profiles: [dev, prod]
   frontend-tests:
     build:
       context: ./frontend
       dockerfile: Dockerfile.test
-    depends_on: [frontend]
+    image: som38/final-backend:${IMAGE_TAG}
+    profiles: [test]
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports: [8000:8000]
     networks: [app-network]
+    profiles: [dev, prod]
 networks:
   app-network:
     driver: bridge

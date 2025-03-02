@@ -6,8 +6,9 @@ COPY package.json ./
 
 RUN npm i
 
-COPY . .
+COPY ./public public
+COPY ./src src
 
 ENV CI=true
 
-CMD ["npm", "test", "watch-all"]
+CMD ["npm", "test", "--watchAll"]
