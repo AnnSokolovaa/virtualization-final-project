@@ -30,17 +30,3 @@ jobs:
         run: |-
           docker compose build
           docker compose push
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Deploy
-        uses: appleboy/ssh-action@v1.2.1
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.DEPLOYMENT_USER }}
-          password: ${{ secrets.PASSWORD }}
-          script: |-
-            docker compose down || true
-            docker compose up -d
