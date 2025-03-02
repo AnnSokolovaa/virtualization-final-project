@@ -9,4 +9,4 @@ RUN npm i
 COPY ./public public
 COPY ./src src
 
-CMD ["npm", "test", "--watchAll"]
+CMD [ "npm", "test" ]
