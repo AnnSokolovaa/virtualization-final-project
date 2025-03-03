@@ -19,8 +19,6 @@ jobs:
           username: som38
           password: ${{ secrets.DOCKERHUB_TOKEN }}  # Store your token in GitHub Secrets
       - name: Run frontend tests
-        env:
-          CI: true
         run: |-
           docker compose build frontend-tests
           docker compose run frontend-tests

@@ -9,4 +9,6 @@ RUN npm i
 COPY ./public public
 COPY ./src src
 
-CMD [ "npm", "test", "--watchAll=false"]
+ENV CI=true
+
+CMD [ "npm", "test" ]
